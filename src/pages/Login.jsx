@@ -128,12 +128,12 @@ const Login = () => {
             </Button>
           </div>
           
-          <div className="text-center">
+          {/* <div className="text-center">
             <p className="text-sm text-gray-600 mt-2">
               Demo credentials:{' '}
               <span className="font-medium">demo@example.com / password123</span>
             </p>
-          </div>
+          </div> */}
         </form>
       </motion.div>
     </div>
