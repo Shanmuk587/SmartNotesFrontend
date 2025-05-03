@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 
 // Create an axios instance
 const api = axios.create({
@@ -11,28 +10,16 @@ const api = axios.create({
   withCredentials: true
 })
 
-// Request interceptor to add authorization header
-// api.interceptors.request.use(
-//   (config) => {
-//     const token = Cookies.get('token')
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`
-//     }
-//     return config
-//   },
-//   (error) => {
-//     return Promise.reject(error)
-//   }
-// )
-
 // Response interceptor to handle common errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle unauthorized errors (401)
+    // Only redirect on 401 if not trying to authenticate
     if (error.response && error.response.status === 401) {
-      Cookies.remove('token')
-      window.location.href = '/login'
+      // Don't redirect if this is the auth check itself
+      if (!error.config.url.includes('/auth/me')) {
+        window.location.href = '/login'
+      }
     }
     
     // Handle forbidden errors (403)

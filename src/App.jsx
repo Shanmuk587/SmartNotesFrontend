@@ -44,6 +44,13 @@ const PublicRoute = ({ children }) => {
 }
 
 function App() {
+  const { isLoading } = useAuth()
+  
+  // Show a loading spinner while checking authentication status
+  if (isLoading) {
+    return <LoadingSpinner fullScreen />
+  }
+
   return (
     <Suspense fallback={<LoadingSpinner fullScreen />}>
       <Routes>
