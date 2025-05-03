@@ -1,5 +1,7 @@
 # Notes Dashboard
 
+  🌐 Live Backend URL (Railway):
+  https://smartnotesfrontend-production.up.railway.app/
 A minimal yet powerful note-taking dashboard built using **React** with **Vite**, featuring:
 
 * ✅ User authentication via JWT (stored in cookies)
