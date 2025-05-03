@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://smartnotesbackend-production.up.railway.app/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -12,18 +12,18 @@ const api = axios.create({
 })
 
 // Request interceptor to add authorization header
-api.interceptors.request.use(
-  (config) => {
-    const token = Cookies.get('token')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-    return config
-  },
-  (error) => {
-    return Promise.reject(error)
-  }
-)
+// api.interceptors.request.use(
+//   (config) => {
+//     const token = Cookies.get('token')
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`
+//     }
+//     return config
+//   },
+//   (error) => {
+//     return Promise.reject(error)
+//   }
+// )
 
 // Response interceptor to handle common errors
 api.interceptors.response.use(
