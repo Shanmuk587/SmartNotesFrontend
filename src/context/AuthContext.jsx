@@ -1,5 +1,11 @@
 import { createContext, useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
+// Removed the Cookies import since we're using HttpOnly cookies managed by the server
+import { 
+  login as apiLogin, 
+  register as apiRegister, 
+  logout as apiLogout 
+} from '../services/authService'
 import api from '../services/api' // Axios instance with baseURL and credentials setup
 
 export const AuthContext = createContext()
@@ -17,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         const response = await api.get('/auth/me', {
           withCredentials: true // Important to send the HttpOnly cookie
         })
-        
+        // console.log(response.data)
         if (response.data) {
           setUser(response.data.data)
           setIsAuthenticated(true)
@@ -25,9 +31,11 @@ export const AuthProvider = ({ children }) => {
           // Clear authentication state if no user data
           setUser(null)
           setIsAuthenticated(false)
+          // No need to remove HttpOnly cookies here - they're managed by the server
         }
       } catch (error) {
-        // Handle 401 errors gracefully without console errors
+        console.error('User not authenticated:', error)
+        // No need to remove HttpOnly cookies here - they can only be removed by the server
         setUser(null)
         setIsAuthenticated(false)
       } finally {
@@ -100,6 +108,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false)
       toast.success('Logged out successfully')
     } catch (error) {
+      console.error('Logout error:', error)
       // Even if logout API fails, clear the local state
       setUser(null)
       setIsAuthenticated(false)
@@ -107,19 +116,6 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setIsLoading(false)
     }
-  }
-
-  // Add missing imports that were removed from the original code
-  const apiLogin = async (credentials) => {
-    return await api.post('/auth/login', credentials)
-  }
-
-  const apiRegister = async (userData) => {
-    return await api.post('/auth/register', userData)
-  }
-
-  const apiLogout = async () => {
-    return await api.post('/auth/logout')
   }
 
   return (
