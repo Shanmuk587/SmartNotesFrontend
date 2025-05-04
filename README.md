@@ -1,6 +1,6 @@
 # Notes Dashboard
 
-  🌐 Live Backend URL (Railway):
+  🌐 Live Frontend URL (Railway):
   https://smartnotesfrontend-production.up.railway.app/  
   
 A minimal yet powerful note-taking dashboard built using **React** with **Vite**, featuring:
@@ -43,7 +43,7 @@ A minimal yet powerful note-taking dashboard built using **React** with **Vite**
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Shanmuk587/SmartNotesFrontend.git
 cd your-repo-name
 ```
 
@@ -55,48 +55,11 @@ npm install
 
 > ⚠️ Do **not** expose sensitive keys on the frontend. Use backend routes to interact with external APIs securely.
 
-### 3. Run the App
-
-```bash
-npm run dev
-
-
-The app will be available at: [http://localhost:5173](http://localhost:5173)
-
----
-
-## 📌 Scripts
-
-```bash
-npm run dev         # Start development server
-npm run build       # Build for production
-```
-
----
-
-## 🔐 Auth Flow (JWT Cookies)
-
-1. On login/register: server returns HTTP-only cookie with access token.
-2. On each request, the cookie is automatically sent.
-3. Token is verified on the backend for protected routes.
-4. Frontend can use a `useAuth` hook or context to manage state.
-
----
-
-## 🧠 AI Integration
-
-* Uses Gemini-pro via API for:
-
-  * Summarizing note content.
-  * Suggesting relevant tags.
-* On note creation/editing, a backend route interacts with the AI and returns summaries/tags.
-
----
-## 🌐 API Configuration
+  ## 🌐 API Configuration
 
 The application uses **Axios** to make HTTP requests to the backend.
 
-### 🔧 Axios Setup (in frontend code):
+### 🔧 Axios Setup (in frontend code) services/api.js:
 
 ```js
 const api = axios.create({
@@ -138,3 +101,41 @@ When deployed (e.g., on Railway):
 ```js
 baseURL: 'https://smartnotesbackend-production.up.railway.app/api'
 ```
+
+### 3. Run the App
+
+```bash
+npm run dev
+
+
+The app will be available at: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 📌 Scripts
+
+```bash
+npm run dev         # Start development server
+npm run build       # Build for production
+```
+
+---
+
+## 🔐 Auth Flow (JWT Cookies)
+
+1. On login/register: server returns HTTP-only cookie with access token.
+2. On each request, the cookie is automatically sent.
+3. Token is verified on the backend for protected routes.
+4. Frontend can use a `useAuth` hook or context to manage state.
+
+---
+
+## 🧠 AI Integration
+
+* Uses Gemini-pro via API for:
+
+  * Summarizing note content.
+  * Suggesting relevant tags.
+* On note creation/editing, a backend route interacts with the AI and returns summaries/tags.
+
+---
