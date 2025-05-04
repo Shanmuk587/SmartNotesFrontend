@@ -51,6 +51,7 @@ export const AuthProvider = ({ children }) => {
         toast.success('Login successful!')
         return true
       } else {
+        toast.success('Invalid Credentials!')
         throw new Error('No user data received')
       }
     } catch (error) {

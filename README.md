@@ -110,3 +110,49 @@ npm run build       # Build for production
 * On note creation/editing, a backend route interacts with the AI and returns summaries/tags.
 
 ---
+## 🌐 API Configuration
+
+The application uses **Axios** to make HTTP requests to the backend.
+
+### 🔧 Axios Setup (in frontend code):
+
+```js
+const api = axios.create({
+  // For production:
+  // baseURL: 'https://smartnotesbackend-production.up.railway.app/api',
+
+  // For local development:
+  baseURL: 'http://localhost:3000/api',
+
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  withCredentials: true,
+});
+```
+
+---
+
+## 🛠️ Local Development Setup
+
+When running your app locally:
+
+* **Backend** should be started on `http://localhost:3000`
+* Axios `baseURL` should be set to:
+
+```js
+baseURL: 'http://localhost:3000/api'
+```
+
+---
+
+## 🚀 Production Deployment
+
+When deployed (e.g., on Railway):
+
+* Update the `baseURL` in Axios to:
+
+```js
+baseURL: 'https://smartnotesbackend-production.up.railway.app/api'
+```
