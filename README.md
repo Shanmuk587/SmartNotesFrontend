@@ -44,7 +44,7 @@ A minimal yet powerful note-taking dashboard built using **React** with **Vite**
 
 ```bash
 git clone https://github.com/Shanmuk587/SmartNotesFrontend.git
-cd your-repo-name
+cd SmartNotesFrontend
 ```
 
 ### 2. Install Dependencies
@@ -96,7 +96,7 @@ baseURL: 'http://localhost:3000/api'
 npm run dev
 
 
-The app will be available at: [http://localhost:5173](http://localhost:5173)
+The app will be available at: [http://localhost:5173]
 
 ---
 
