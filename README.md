@@ -90,17 +90,6 @@ baseURL: 'http://localhost:3000/api'
 ```
 
 ---
-
-## 🚀 Production Deployment
-
-When deployed (e.g., on Railway):
-
-* Update the `baseURL` in Axios to:
-
-```js
-baseURL: 'https://smartnotesbackend-production.up.railway.app/api'
-```
-
 ### 3. Run the App
 
 ```bash
