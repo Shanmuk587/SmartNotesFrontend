@@ -23,7 +23,6 @@ A minimal yet powerful note-taking dashboard built using **React** with **Vite**
 * **UI/UX:** Clean and intuitive interface with responsive design.
 * **Architecture:** Modular and scalable component structure.
 * **API:** RESTful API integration for backend CRUD operations.
-* **Performance:** Uses either `@vitejs/plugin-react` (Babel) or `@vitejs/plugin-react-swc` (SWC) for fast refresh and performance.
 
 ---
 
@@ -32,7 +31,7 @@ A minimal yet powerful note-taking dashboard built using **React** with **Vite**
 * **React 18 + Vite**
 * **React Router**
 * **Axios**
-* **Tailwind CSS / Styled Components (optional)**
+* **Tailwind CSS / Styled Components**
 * **JWT Auth**
 * **Gemini-pro(for AI summaries and tag suggestions)**
 * **API (Node.js/Express or any backend)**
@@ -63,23 +62,6 @@ npm run dev
 
 
 The app will be available at: [http://localhost:5173](http://localhost:5173)
-
----
-
-## 📁 Project Structure
-
-```bash
-src/
-│
-├── api/                # Axios client and endpoints
-├── components/         # Reusable components
-├── features/           # Auth, Notes, Tags features
-├── hooks/              # Custom hooks
-├── pages/              # Page-level components
-├── utils/              # Helper functions (e.g., token handling)
-├── App.jsx             # App routing
-└── main.jsx            # Entry point
-```
 
 ---
 
