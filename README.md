@@ -53,7 +53,6 @@ cd your-repo-name
 npm install
 ```
 
-> ⚠️ Do **not** expose sensitive keys on the frontend. Use backend routes to interact with external APIs securely.
 
   ## 🌐 API Configuration
 
